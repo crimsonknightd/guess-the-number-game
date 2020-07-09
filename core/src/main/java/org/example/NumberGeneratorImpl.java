@@ -13,14 +13,27 @@ public class NumberGeneratorImpl implements NumberGenerator {
     @MaxNumber
     private int maxNumber;
 
+    @Autowired
+    @MinNumber
+    private int minNumber;
+
     // == public methods ==
     @Override
     public int next() {
-        return random.nextInt(maxNumber);
+        int number = random.nextInt(maxNumber);
+        while (number < minNumber){
+            number = random.nextInt(maxNumber);
+        }
+        return number;
     }
 
     @Override
     public int getMaxNumber() {
         return maxNumber;
+    }
+
+    @Override
+    public int getMinNumber() {
+        return minNumber;
     }
 }

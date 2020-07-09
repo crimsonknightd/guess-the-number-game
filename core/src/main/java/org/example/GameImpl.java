@@ -35,6 +35,7 @@ public class GameImpl implements Game {
         guess = 0;
         remainingGuesses = guessCount;
         biggest = numberGenerator.getMaxNumber();
+        smallest = numberGenerator.getMinNumber();
         number = numberGenerator.next();
         log.debug("the number is {}", number);
     }
