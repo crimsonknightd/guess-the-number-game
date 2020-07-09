@@ -20,11 +20,14 @@ public class NumberGeneratorImpl implements NumberGenerator {
     // == public methods ==
     @Override
     public int next() {
+        /*
         int number = random.nextInt(maxNumber);
         while (number < minNumber){
             number = random.nextInt(maxNumber);
         }
-        return number;
+         */
+        //better solution = rand(Max - min) + minNumber
+        return random.nextInt(maxNumber - minNumber) + minNumber;
     }
 
     @Override
