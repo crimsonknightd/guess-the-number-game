@@ -1,9 +1,8 @@
 package org.example.console;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.Game;
 import org.example.MessageGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
@@ -11,11 +10,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Slf4j
 @Component
 public class ConsoleNumberGuess {
-
-    // == constants ==
-    private static final Logger log = LoggerFactory.getLogger(ConsoleNumberGuess.class);
 
     // == fields ==
     private final Game game;
@@ -49,7 +46,6 @@ public class ConsoleNumberGuess {
                 System.out.println(messageGenerator.getResultMessage());
                 System.out.println("Play again? [y/n]");
 
-                scanner.nextLine();
                 String playAgainString = scanner.nextLine().trim();
                 if (!playAgainString.equalsIgnoreCase("y")){
                     break;
